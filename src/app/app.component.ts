@@ -23,12 +23,9 @@ export class AppComponent {
   selectedVaccine = this.vaccines[0];
   display: any = [];
   columnDefs = [
-    { field: 'name', sortable: true, filter: true },
-    { field: 'date', sortable: true, filter: true },
-    { field: 'slots', filter: true},
-    { field: 'availableCapacity', sortable: true, sortingOrder: ['desc', 'asc'], filter: true},
-    { field: 'address', filter: true}
-  ];
+    { field: 'name', resizable: true, sortable: true, filter: true },
+    { field: 'date', resizable: true, sortable: true, filter: true },
+    { field: 'availableCapacity', resizable: true, sortable: true, sortingOrder: ['desc', 'asc'], filter: true},  ];
   api: any;
   columnApi: any;
 
@@ -63,9 +60,7 @@ export class AppComponent {
               this.display.push({
                 name: item['name'],
                 date: sessionItem['date'],
-                slots: sessionItem['slots'],
-                availableCapacity: sessionItem['available_capacity'],
-                address: item['address']
+                availableCapacity: sessionItem['available_capacity']
               });
             }
           });
