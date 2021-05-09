@@ -1,6 +1,6 @@
 <div>
   <div class="m-3">
-    <nav class="navbar navbar-light bg-primary">
+    <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">Vaccine Availability Check</span>
       </div>
@@ -36,6 +36,7 @@
       class="ag-theme-alpine"
       [rowData]="display"
       [columnDefs]="columnDefs"
+      [getRowStyle]="getRowStyle"
       animateRows="true"
       (gridReady)="onGridReady($event)">
       </ag-grid-angular>

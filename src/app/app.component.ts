@@ -23,14 +23,21 @@ export class AppComponent {
   selectedVaccine = this.vaccines[0];
   display: any = [];
   columnDefs = [
-    { field: 'name', resizable: true, sortable: true, filter: true },
-    { field: 'date', resizable: true, sortable: true, filter: true },
-    { field: 'availableCapacity', resizable: true, sortable: true, sortingOrder: ['desc', 'asc'], filter: true},  ];
+    { field: 'name', suppressMovable: true, resizable: true, sortable: true, filter: true },
+    { field: 'date', suppressMovable: true, resizable: true, sortable: true, filter: true },
+    { field: 'availableCapacity', suppressMovable: true, resizable: true, sortable: true, filter: true},  ];
   api: any;
   columnApi: any;
+  getRowStyle: any;
 
   constructor(private vService: VaccineService, private datePipe: DatePipe) {
     this.date = this.datePipe.transform(new Date(), 'dd-MM-yyyy');
+    this.getRowStyle = (params: any) => {
+      if (params.data.availableCapacity === 0) {
+          return { background: 'red' };
+      }
+      return;
+    };
     this.vService.getStateDetails().subscribe((data) => {
       data['states'].forEach((item: any) => {
         this.states.push(item['state_name']);
