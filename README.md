@@ -1,5 +1,6 @@
 # VaccineCheck
 
+Access app at https://vaccine-check.netlify.app/
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
 
 Public Backend API : https://apisetu.gov.in/public/api/cowin#/
